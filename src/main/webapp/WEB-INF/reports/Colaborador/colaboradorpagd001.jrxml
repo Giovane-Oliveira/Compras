@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportspd" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a4303968-683f-4fb1-bdad-661bc6332013">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="colaboradorid" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="status" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dataInicial" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dataFinal" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="picture" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IDcompraservicos" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+colaborador.nome,
+colaborador.estabelecimento,
+colaborador.setor,
+colaborador.email,
+pagamentosdiversos.id,
+pagamentosdiversos.fornecedor as 'Fornecedor',
+pagamentosdiversos.descricao as 'Descrição',
+pagamentosdiversos.vencimento as 'Vencimento',
+pagamentosdiversos.valor as 'Valor',
+pagamentosdiversos.empresa as 'Empresa',
+pagamentosdiversos.supervisor,
+pagamentosdiversos.supervisorid ,
+pagamentosdiversos.supervisorhash ,
+pagamentosdiversos.gerente,
+pagamentosdiversos.gerenteid,
+pagamentosdiversos.gerentehash,
+pagamentosdiversos.`data` AS 'Data',
+pagamentosdiversos.`status` AS 'Status',
+formapagamento.pagamentosDiversos_id AS 'ID Pag.',
+formapagamento.formaPagamento AS 'F.Pagamento',
+formapagamento.banco AS 'Banco',
+formapagamento.agencia AS 'Agencia',
+formapagamento.contacorrente AS 'C/C',
+formapagamento.cpf AS 'CPF',
+formapagamento.cnpj AS 'CNPJ',
+formapagamento.email AS 'emailpag',
+formapagamento.telefone AS 'Telefone'
+FROM pagamentosdiversos
+JOIN colaborador
+ON colaborador.id = pagamentosdiversos.colaborador_id
+JOIN formapagamento
+ON  pagamentosdiversos.id = formapagamento.pagamentosDiversos_id
+WHERE pagamentosdiversos.id = $P{IDcompraservicos}]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estabelecimento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="setor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Fornecedor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Descrição" class="java.lang.String"/>
+	<field name="Vencimento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Valor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Empresa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="supervisor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="supervisorid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="supervisorhash" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gerente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gerenteid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gerentehash" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Data" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="ID Pag." class="java.lang.Integer"/>
+	<field name="F.Pagamento" class="java.lang.String"/>
+	<field name="Banco" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Agencia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="C/C" class="java.lang.String"/>
+	<field name="CPF" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CNPJ" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emailpag" class="java.lang.String"/>
+	<field name="Telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="134" splitType="Stretch">
+			<staticText>
+				<reportElement x="336" y="114" width="79" height="20" uuid="e4ce349f-f368-4a3e-b6ed-29deea057b50"/>
+				<text><![CDATA[Gerado em:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="2" width="37" height="20" uuid="fc50fec2-917a-40f1-9c4f-a5c2d346bc0c"/>
+				<text><![CDATA[Status:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="488" y="2" width="47" height="20" uuid="f3e58af9-4cc8-4f80-b7a5-31169e9afcc2"/>
+				<box leftPadding="8"/>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="83" y="72" width="50" height="20" uuid="a7affd53-207c-4dfd-9716-42370f45e96d"/>
+				<text><![CDATA[Empresa:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="535" y="2" width="21" height="20" uuid="b76b999c-0f59-4eea-a02b-08717fa0a5a9"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="52" width="420" height="20" uuid="32b5a6ac-8012-4b3e-b9b1-31f92692ec44"/>
+				<textFieldExpression><![CDATA[$F{estabelecimento}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="21" width="81" height="75" uuid="d8381f74-9910-4073-9030-536ef4b916c4"/>
+				<imageExpression><![CDATA[$P{picture}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="136" y="32" width="418" height="20" uuid="118097aa-c518-47c4-a545-7392f3e24d6a"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="123" y="93" width="431" height="20" uuid="90382c99-e211-46f4-b89b-6d1ed022abf4"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="81" y="32" width="55" height="20" uuid="4d267130-c9b2-4543-9c74-acc1ade71e00"/>
+				<text><![CDATA[Solicitante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="52" width="51" height="20" uuid="0fadb249-987d-4b30-a051-59546dd1b299"/>
+				<text><![CDATA[Unidade:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="72" width="418" height="20" uuid="d6289d76-4fb3-4e12-8c9a-bb43f85c3085"/>
+				<textFieldExpression><![CDATA[$F{Empresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="2" width="116" height="20" uuid="d7173da1-3d09-4720-8520-02f3fe32aba3"/>
+				<textFieldExpression><![CDATA[$F{Status}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="83" y="92" width="40" height="20" uuid="cafffc3b-e041-4f01-8b1b-ecbe97cd498b"/>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="0" width="246" height="20" uuid="25536149-1b35-4851-a188-5bc019712c7e"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[Autorização de Pagamento]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="415" y="114" width="139" height="20" uuid="7b4fb76a-74a1-4d9f-b9c7-d652151b5c43"/>
+				<textFieldExpression><![CDATA[$F{Data}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="505" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="0" width="554" height="1" uuid="e4a3e94c-9473-479e-898c-49b01d1db5ff"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="71" y="87" width="484" height="78" isPrintWhenDetailOverflows="true" uuid="e06ee9f3-867c-4291-bf7b-0bc99035a5c2"/>
+				<box topPadding="25" leftPadding="10">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{Descrição}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="7" width="63" height="20" uuid="74428604-208e-4498-9db9-d3069e0095d2"/>
+				<box leftPadding="10">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{ID Pag.}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="185" width="74" height="20" backcolor="#CCCCCC" uuid="42da1e55-9c5b-4417-a275-793b09a3fbd6"/>
+				<box leftPadding="10">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[Vencimento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="72" y="33" width="482" height="20" isPrintWhenDetailOverflows="true" uuid="d1c77ac5-99c9-4dd3-af28-66d098584271"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{Fornecedor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="3" y="58" width="68" height="20" backcolor="#CCCCCC" uuid="db9aa0f9-8f91-4c78-b2ac-63956fc17496"/>
+				<box leftPadding="10">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[Empresa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="87" width="70" height="78" forecolor="#000000" backcolor="#CCCCCC" uuid="557b6944-63e0-49eb-88a7-fad84b668e05"/>
+				<box topPadding="25" leftPadding="10">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[Descrição:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="3" y="238" width="546" height="20" isPrintWhenDetailOverflows="true" uuid="2f01994e-99b0-45d1-900e-ab23b5ea2f2a"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA[$F{F.Pagamento} == "pix" & $F{emailpag} != null ? "Forma Pagamento: " + $F{F.Pagamento} + "\nEmail: " + $F{emailpag} :
+                $F{F.Pagamento} == "pix" & $F{CPF} != null ? "Forma Pagamento: " + $F{F.Pagamento} + "  \nCPF: " + $F{CPF} :
+                $F{F.Pagamento} == "pix" & $F{CNPJ} != null ? "Forma Pagamento: " + $F{F.Pagamento} + "  \nCPF: " + $F{CNPJ} :
+                $F{F.Pagamento} == "pix" & $F{Telefone} != null ? "Forma Pagamento: " + $F{F.Pagamento} + "  CPF: " + $F{Telefone} :
+                $F{F.Pagamento} == "deposito" ? "Forma Pagamento: " + $F{F.Pagamento} + "  \nBanco: " + $F{Banco} + "\nAgencia: " + $F{Agencia} + "\nC/C: " + $F{C/C} :
+                $F{F.Pagamento} == "boleto" ? "Forma Pagamento: " + $F{F.Pagamento} :
+                $F{F.Pagamento} == "avista" ? "Forma Pagamento: " + $F{F.Pagamento} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="185" width="83" height="20" isPrintWhenDetailOverflows="true" uuid="d2510b30-a4fb-4b04-84d7-77462d9ed6e3"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{Valor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="347" y="185" width="47" height="20" backcolor="#CCCCCC" uuid="47268b45-4088-4abe-adf8-7c2755548aba"/>
+				<box leftPadding="10">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[Valor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="3" y="33" width="69" height="20" backcolor="#CCCCCC" uuid="a87ac016-1959-4a3a-9d0c-e4a2d44390bc"/>
+				<box leftPadding="10">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[Fornecedor:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="71" y="58" width="484" height="20" isPrintWhenDetailOverflows="true" uuid="58dc328a-5ca7-4110-aa00-64a90386e7b8"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{Empresa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="7" width="69" height="20" backcolor="#CCCCCC" uuid="397e9bce-c6a8-4688-b18f-06a44e2ff34e"/>
+				<box leftPadding="10">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[Solicitação:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="77" y="185" width="91" height="20" isPrintWhenDetailOverflows="true" uuid="72566191-cc9d-41e9-9790-8a0088416423"/>
+				<box leftPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{Vencimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="406" width="441" height="20" uuid="78c7a7f8-30a4-4eb5-a1ec-df40cdd4f4ea"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA[$F{supervisorhash} != null ? "Hash: " + $F{supervisorhash} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="463" width="441" height="20" uuid="60267542-d945-4a4f-b778-337faa23d743"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA[$F{gerente} != null ? "Gerente: " + $F{gerente} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="483" width="441" height="21" uuid="54ce36b2-c39c-4f5f-8065-ee59f5931bee"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA[$F{gerentehash} != null ? "Hash: " + $F{gerentehash} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="386" width="442" height="20" uuid="a882e974-163c-4525-8344-ec69bc3d8341"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA[$F{supervisor} != null ? "Supervisor: " + $F{supervisor} : ""]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

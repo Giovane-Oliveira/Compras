@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportsc" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="370d3b4e-a21a-44fa-8be0-41c60816ca8f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="colaborador_id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dataInicial" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DataFinal" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Status" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="picture" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="scitem" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="IDcompraservicos" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+colaborador.nome,
+colaborador.setor,
+colaborador.email,
+colaborador.estabelecimento,
+compraservicos.id,
+compraservicos.unidade,
+compraservicos.justificativa,
+compraservicos.`status`,
+compraservicos.supervisor,
+compraservicos.supervisorid,
+compraservicos.supervisorhash,
+compraservicos.gerente,
+compraservicos.gerenteid,
+compraservicos.gerentehash,
+compraservicos.supervisorid,
+compraservicos.gerentehash,
+compraservicos.`data`
+FROM compraservicos
+JOIN colaborador
+ON colaborador.id =  compraservicos.colaborador_id
+WHERE compraservicos.id = $P{IDcompraservicos}]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="setor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="estabelecimento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="unidade" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="justificativa" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="supervisor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="supervisorid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="supervisorhash" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gerente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gerenteid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gerentehash" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="128" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="46" width="55" height="20" uuid="23a5c4d7-6a82-4326-9530-c105bcdd9e67"/>
+				<text><![CDATA[Solicitante:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="46" width="419" height="20" uuid="3f6317d4-4272-4a7a-b579-4de9f1e2b988"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="81" y="86" width="50" height="20" uuid="87e7a821-201a-4c41-8224-f631124fc879"/>
+				<text><![CDATA[Empresa:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="131" y="86" width="424" height="20" uuid="dfa2dc1b-25d6-46b6-9bac-105916400928"/>
+				<textFieldExpression><![CDATA[$F{unidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="66" width="424" height="20" uuid="022c673a-c0c0-435f-9140-4aecf870ef67"/>
+				<textFieldExpression><![CDATA[$F{estabelecimento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="81" y="106" width="40" height="20" uuid="ad63fc13-1dd9-4da0-8468-0a508dd10183"/>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="127" width="555" height="1" uuid="029f6bbc-b38a-4032-9304-3b2bf072692e"/>
+			</line>
+			<image>
+				<reportElement x="0" y="38" width="81" height="75" uuid="e04803b6-90a5-490d-8f4b-b7f368e0db70"/>
+				<imageExpression><![CDATA[$P{picture}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="121" y="106" width="434" height="21" uuid="f27c26b4-0540-4cfa-bf26-3ad5dd730a03"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="334" y="1" width="37" height="20" uuid="1d19c7b2-1cbf-405b-bb35-d3504740d851"/>
+				<text><![CDATA[Status:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="371" y="1" width="116" height="20" uuid="e932d16f-74fb-4460-94ff-83bdde653eb3"/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="d35d916f-0513-46ae-9b03-b5441dee38e5"/>
+			</line>
+			<staticText>
+				<reportElement x="80" y="66" width="51" height="20" uuid="81b3351a-6904-4418-9585-a41a6a7e2f65"/>
+				<text><![CDATA[Unidade:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="534" y="1" width="21" height="20" uuid="0a64ac8c-3222-44c2-acdd-8681724ec1fc"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="487" y="1" width="47" height="20" uuid="9065d74a-f805-403c-a242-96fb2d118819"/>
+				<box leftPadding="8"/>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="442" y="25" width="113" height="20" uuid="84f5d436-2ae5-4d0f-ac8c-31c020146921"/>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="374" y="25" width="68" height="21" uuid="b885bdb8-0a01-4acc-989e-904e3b2b2879"/>
+				<box topPadding="0" leftPadding="8"/>
+				<text><![CDATA[Gerado em:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="1" width="333" height="20" uuid="04cc83d4-9a62-415f-b23b-2b056cfd7822"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<text><![CDATA[Solicitação de Compras e Serviços]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="424">
+			<staticText>
+				<reportElement x="0" y="0" width="63" height="20" uuid="c9c218fc-e002-48e9-8a84-076fcf465da2"/>
+				<text><![CDATA[Solicitação:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="63" y="0" width="29" height="20" uuid="9efbe2bc-563a-4614-b944-372eb3171083"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="21" width="555" height="82" uuid="0a5129c7-0685-45e6-a014-2772cf03b81e"/>
+				<subreportParameter name="compraservicosid">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{scitem}]]></subreportExpression>
+			</subreport>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="73" y="134" width="482" height="89" isPrintWhenDetailOverflows="true" uuid="d8977f8e-7b72-4d52-8bbf-7bd16ce6ff96"/>
+				<textFieldExpression><![CDATA[$F{justificativa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="9" y="134" width="63" height="20" uuid="dd2624f8-73aa-489f-bd38-88a183525b85"/>
+				<text><![CDATA[Justificativa:]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="1" y="356" width="441" height="20" uuid="14921d21-07f5-4172-a56c-ff036da2a9f4"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA[$F{gerente} != null ? "Gerente: " + $F{gerente} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="0" y="279" width="442" height="20" uuid="df6046df-8f4d-4de7-b954-c6b721b534a7"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA[$F{supervisor} != null ? "Supervisor: " + $F{supervisor} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="1" y="299" width="441" height="20" uuid="ec10d504-e25f-43fb-acd9-eefc0d7d8adc"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA[$F{supervisorhash} != null ? "Hash: " + $F{supervisorhash} : ""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="1" y="376" width="441" height="21" uuid="a200f0c4-f6e1-423b-9fc3-0c19100724af"/>
+				<box leftPadding="10"/>
+				<textFieldExpression><![CDATA[$F{gerentehash} != null ? "Hash: " + $F{gerentehash} : ""]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
