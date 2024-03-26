@@ -1,2 +1,2 @@
 # Compras
- Sistema de requisição de compras e autorização de pagamentos
+ Sistema de requisição de compras e autorização de pagamentos.
